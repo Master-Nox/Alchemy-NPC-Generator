@@ -15,7 +15,8 @@
 # Set Tracker HP to match NPC HP. DONE (Maybe alter die size based on class later) DONE
 # Saving throw proficiencies. DONE
 # Auto-Generate a set of actions based on class?
-# Make Species actually respect their rarity.
+# Make Species actually respect their rarity. DONE
+# Make a setting to force a certain level or level range. 
 
 
 # Imports #
@@ -301,24 +302,24 @@ def ClassGen(CLASSTOGGLE, INCLUDEHOMEBREWCLASSES):
     if CLASSTOGGLE == False:
         ClassRandom = random.randint(1, 20)
     else:
-        ClassRandom = 19
+        ClassRandom = 20
     SAVE1 = "N/A"
     SAVE2 = "N/A"
     
     if ClassRandom < 19:
-        ClassRandom = random.randint(1, 100)
+        CommonerRandom = random.randint(1, 100)
         if ClassRandom < 80:
             CLASS = "Commoner"
             MAINSTAT = "RAND"
             SECONDSTAT = "RAND"
             HITDIE = 4
         else:
-            if ClassRandom < 80:
+            if CommonerRandom < 80:
                 CLASS = "Commoner"
                 MAINSTAT = "RAND"
                 SECONDSTAT = "RAND"
                 HITDIE = 4
-            elif ClassRandom == 80:
+            elif CommonerRandom == 80:
                 CLASS = "Alchemist"
                 if random.randint(1, 2) == 1:
                     MAINSTAT = "wis"
@@ -326,72 +327,72 @@ def ClassGen(CLASSTOGGLE, INCLUDEHOMEBREWCLASSES):
                     MAINSTAT = "int"
                 SECONDSTAT = "RAND"
                 HITDIE = 6
-            elif ClassRandom == 81:
+            elif CommonerRandom == 81:
                 CLASS = "Artificer"
                 MAINSTAT = "int"
                 SECONDSTAT = "RAND"
                 HITDIE = 6
-            elif ClassRandom == 82:
+            elif CommonerRandom == 82:
                 CLASS = "Blacksmith"
                 MAINSTAT = "str"
                 SECONDSTAT = "RAND"
                 HITDIE = 6
-            elif ClassRandom == 83:
+            elif CommonerRandom == 83:
                 CLASS = "Brewer"
                 MAINSTAT = "wis"
                 SECONDSTAT = "RAND"
                 HITDIE = 6
-            elif ClassRandom == 84:
+            elif CommonerRandom == 84:
                 CLASS = "Carpenter"
                 MAINSTAT = "dex"
                 SECONDSTAT = "RAND"
                 HITDIE = 6
-            elif ClassRandom == 85:
+            elif CommonerRandom == 85:
                 CLASS = "Cobbler"
                 MAINSTAT = "dex"
                 SECONDSTAT = "RAND"
                 HITDIE = 6
-            elif ClassRandom == 86:
+            elif CommonerRandom == 86:
                 CLASS = "Cook"
                 MAINSTAT = "wis"
                 SECONDSTAT = "RAND"
                 HITDIE = 6
-            elif ClassRandom == 87:
+            elif CommonerRandom == 87:
                 CLASS = "Enchanter"
                 MAINSTAT = "int"
                 SECONDSTAT = "RAND"
                 HITDIE = 6
-            elif ClassRandom == 88:
+            elif CommonerRandom == 88:
                 CLASS = "Engineer"
                 MAINSTAT = "int"
                 SECONDSTAT = "RAND"
                 HITDIE = 6
-            elif ClassRandom == 89:
+            elif CommonerRandom == 89:
                 CLASS = "Glassblower"
                 MAINSTAT = "dex"
                 SECONDSTAT = "RAND"
                 HITDIE = 6
-            elif ClassRandom == 90:
+            elif CommonerRandom == 90:
                 CLASS = "Jeweler"
                 MAINSTAT = "dex"
                 SECONDSTAT = "RAND"
                 HITDIE = 6
-            elif ClassRandom == 91:
+            elif CommonerRandom == 91:
                 CLASS = "Leatherworker"
                 MAINSTAT = "dex"
                 SECONDSTAT = "RAND"
                 HITDIE = 6
-            elif ClassRandom == 92:
+            elif CommonerRandom == 92:
                 CLASS = "Mason"
                 MAINSTAT = "str"
                 SECONDSTAT = "RAND"
                 HITDIE = 6
-            elif ClassRandom == 93:
+            elif CommonerRandom == 93:
                 CLASS = "Painter"
                 MAINSTAT = "wis"
                 SECONDSTAT = "RAND"
                 HITDIE = 6
-            elif ClassRandom == 94:
+            elif CommonerRandom == 94:
                 CLASS = "Poisoner"
                 if random.randint(1, 2) == 1:
                     MAINSTAT = "wis"
@@ -399,82 +400,82 @@ def ClassGen(CLASSTOGGLE, INCLUDEHOMEBREWCLASSES):
                     MAINSTAT = "int"
                 SECONDSTAT = "RAND"
                 HITDIE = 6
-            elif ClassRandom == 95:
+            elif CommonerRandom == 95:
                 CLASS = "Scroll Scriber"
                 MAINSTAT = "int"
                 SECONDSTAT = "RAND"
                 HITDIE = 6
-            elif ClassRandom == 96:
+            elif CommonerRandom == 96:
                 CLASS = "Tailor"
                 MAINSTAT = "dex"
                 SECONDSTAT = "RAND"
                 HITDIE = 6
-            elif ClassRandom == 97:
+            elif CommonerRandom == 97:
                 CLASS = "Tinkerer"
                 MAINSTAT = "int"
                 SECONDSTAT = "RAND"
                 HITDIE = 6
-            elif ClassRandom == 98:
+            elif CommonerRandom == 98:
                 CLASS = "Wand Whittler"
                 MAINSTAT = "dex"
                 SECONDSTAT = "RAND"
                 HITDIE = 6
-            elif ClassRandom == 99:
+            elif CommonerRandom == 99:
                 CLASS = "Weaver"
                 MAINSTAT = "dex"
                 SECONDSTAT = "RAND"
                 HITDIE = 6
-            elif ClassRandom == 100:
+            elif CommonerRandom == 100:
                 CLASS = "Wood Carver"
                 MAINSTAT = "dex"
                 SECONDSTAT = "RAND"
                 HITDIE = 6
     else:
         if INCLUDEHOMEBREWCLASSES == False:
-            ClassRandom = random.randint(1, 14)
-            if ClassRandom == 1:
+            PClassRandom = random.randint(1, 14)
+            if PClassRandom == 1:
                 CLASS = "Artificer"
                 MAINSTAT = "int"
                 SECONDSTAT = "RAND"
                 HITDIE = 8
                 SAVE1 = "Constitution"
                 SAVE2 = "Intelligence"
-            elif ClassRandom == 2:
+            elif PClassRandom == 2:
                 CLASS = "Barbarian"
                 MAINSTAT = "str"
                 SECONDSTAT = "con"
                 HITDIE = 12
                 SAVE1 = "Strength"
                 SAVE2 = "Constitution"
-            elif ClassRandom == 3:
+            elif PClassRandom == 3:
                 CLASS = "Bard"
                 MAINSTAT = "cha"
                 SECONDSTAT = "RAND"
                 HITDIE = 8
                 SAVE1 = "Dexterity"
                 SAVE2 = "Charisma"
-            elif ClassRandom == 4:
+            elif PClassRandom == 4:
                 CLASS = "Bloodhunter"
                 MAINSTAT = "dex"
                 SECONDSTAT = "int"
                 HITDIE = 10
                 SAVE1 = "Dexterity"
                 SAVE2 = "Intelligence"
-            elif ClassRandom == 5:
+            elif PClassRandom == 5:
                 CLASS = "Cleric"
                 MAINSTAT = "wis"
                 SECONDSTAT = "RAND"
                 HITDIE = 8
                 SAVE1 = "Wisdom"
                 SAVE2 = "Charisma"
-            elif ClassRandom == 6:
+            elif PClassRandom == 6:
                 CLASS = "Druid"
                 MAINSTAT = "wis"
                 SECONDSTAT = "RAND"
                 HITDIE = 8
                 SAVE1 = "Intelligence"
                 SAVE2 = "Wisdom"
-            elif ClassRandom == 7:
+            elif PClassRandom == 7:
                 CLASS = "Fighter"
                 if random.randint(1, 2) == 1:
                     MAINSTAT = "str"
@@ -484,49 +485,49 @@ def ClassGen(CLASSTOGGLE, INCLUDEHOMEBREWCLASSES):
                 HITDIE = 10
                 SAVE1 = "Strength"
                 SAVE2 = "Constitution"
-            elif ClassRandom == 8:
+            elif PClassRandom == 8:
                 CLASS = "Monk"
                 MAINSTAT = "dex"
                 SECONDSTAT = "wis"
                 HITDIE = 8
                 SAVE1 = "Strength"
                 SAVE2 = "Dexterity"
-            elif ClassRandom == 9:
+            elif PClassRandom == 9:
                 CLASS = "Paladin"
                 MAINSTAT = "cha"
                 SECONDSTAT = "str"
                 HITDIE = 10
                 SAVE1 = "Wisdom"
                 SAVE2 = "Charisma"
-            elif ClassRandom == 10:
+            elif PClassRandom == 10:
                 CLASS = "Ranger"
                 MAINSTAT = "dex"
                 SECONDSTAT = "wis"
                 HITDIE = 10
                 SAVE1 = "Strength"
                 SAVE2 = "Dexterity"
-            elif ClassRandom == 11:
+            elif PClassRandom == 11:
                 CLASS = "Rogue"
                 MAINSTAT = "dex"
                 SECONDSTAT = "RAND"
                 HITDIE = 8
                 SAVE1 = "Dexterity"
                 SAVE2 = "Intelligence"
-            elif ClassRandom == 12:
+            elif PClassRandom == 12:
                 CLASS = "Sorcerer"
                 MAINSTAT = "cha"
                 SECONDSTAT = "RAND"
                 HITDIE = 6
                 SAVE1 = "Constitution"
                 SAVE2 = "Charisma"
-            elif ClassRandom == 13:
+            elif PClassRandom == 13:
                 CLASS = "Warlock"
                 MAINSTAT = "cha"
                 SECONDSTAT = "RAND"
                 HITDIE = 8
                 SAVE1 = "Wisdom"
                 SAVE2 = "Charisma"
-            elif ClassRandom == 14:
+            elif PClassRandom == 14:
                 CLASS = "Wizard"
                 MAINSTAT = "int"
                 SECONDSTAT = "RAND"
@@ -534,57 +535,57 @@ def ClassGen(CLASSTOGGLE, INCLUDEHOMEBREWCLASSES):
                 SAVE1 = "Intelligence"
                 SAVE2 = "Wisdom"
         else:
-            ClassRandom = random.randint(1, 20)
-            if ClassRandom == 1:
+            PClassRandom = random.randint(1, 20)
+            if PClassRandom == 1:
                 CLASS = "Artificer"
                 MAINSTAT = "int"
                 SECONDSTAT = "RAND"
                 HITDIE = 8
                 SAVE1 = "Constitution"
                 SAVE2 = "Intelligence"
-            elif ClassRandom == 2:
+            elif PClassRandom == 2:
                 CLASS = "Barbarian"
                 MAINSTAT = "str"
                 SECONDSTAT = "con"
                 HITDIE = 12
                 SAVE1 = "Strength"
                 SAVE2 = "Constitution"
-            elif ClassRandom == 3:
+            elif PClassRandom == 3:
                 CLASS = "Bard"
                 MAINSTAT = "cha"
                 SECONDSTAT = "RAND"
                 HITDIE = 8
                 SAVE1 = "Dexterity"
                 SAVE2 = "Charisma"
-            elif ClassRandom == 4:
+            elif PClassRandom == 4:
                 CLASS = "Bloodhunter"
                 MAINSTAT = "dex"
                 SECONDSTAT = "int"
                 HITDIE = 10
                 SAVE1 = "Dexterity"
                 SAVE2 = "Intelligence"
-            elif ClassRandom == 5:
+            elif PClassRandom == 5:
                 CLASS = "Cleric"
                 MAINSTAT = "wis"
                 SECONDSTAT = "RAND"
                 HITDIE = 8
                 SAVE1 = "Wisdom"
                 SAVE2 = "Charisma"
-            elif ClassRandom == 6:
+            elif PClassRandom == 6:
                 CLASS = "Druid"
                 MAINSTAT = "wis"
                 SECONDSTAT = "RAND"
                 HITDIE = 8
                 SAVE1 = "Intelligence"
                 SAVE2 = "Wisdom"
-            elif ClassRandom == 7:
+            elif PClassRandom == 7:
                 CLASS = "Falconer"
                 MAINSTAT = "dex"
                 SECONDSTAT = "wis"
                 HITDIE = 8
                 SAVE1 = "Strength"
                 SAVE2 = "Dexterity"
-            elif ClassRandom == 8:
+            elif PClassRandom == 8:
                 CLASS = "Fighter"
                 if random.randint(1, 2) == 1:
                     MAINSTAT = "str"
@@ -594,7 +595,7 @@ def ClassGen(CLASSTOGGLE, INCLUDEHOMEBREWCLASSES):
                 HITDIE = 10
                 SAVE1 = "Strength"
                 SAVE2 = "Constitution"
-            elif ClassRandom == 9:
+            elif PClassRandom == 9:
                 CLASS = "Guardian"
                 MAINSTAT = "str"
                 if random.randint(1, 2) == 1:
@@ -604,7 +605,7 @@ def ClassGen(CLASSTOGGLE, INCLUDEHOMEBREWCLASSES):
                 HITDIE = 12
                 SAVE1 = "Constitution"
                 SAVE2 = "Charisma"
-            elif ClassRandom == 10:
+            elif PClassRandom == 10:
                 CLASS = "Keeper"
                 MAINSTAT = "cha"
                 if random.randint(1, 2) == 1:
@@ -617,7 +618,7 @@ def ClassGen(CLASSTOGGLE, INCLUDEHOMEBREWCLASSES):
                 HITDIE = 8
                 SAVE1 = "Constitution"
                 SAVE2 = "Charisma"
-            elif ClassRandom == 11:
+            elif PClassRandom == 11:
                 CLASS = "Magus"
                 if random.randint(1, 2) == 1:
                     MAINSTAT = "str"
@@ -627,56 +628,56 @@ def ClassGen(CLASSTOGGLE, INCLUDEHOMEBREWCLASSES):
                 HITDIE = 10
                 SAVE1 = "Constitution"
                 SAVE2 = "Intelligence"
-            elif ClassRandom == 12:
+            elif PClassRandom == 12:
                 CLASS = "Monk"
                 MAINSTAT = "dex"
                 SECONDSTAT = "wis"
                 HITDIE = 8
                 SAVE1 = "Strength"
                 SAVE2 = "Dexterity"
-            elif ClassRandom == 13:
+            elif PClassRandom == 13:
                 CLASS = "Paladin"
                 MAINSTAT = "cha"
                 SECONDSTAT = "str"
                 HITDIE = 10
                 SAVE1 = "Wisdom"
                 SAVE2 = "Charisma"
-            elif ClassRandom == 14:
+            elif PClassRandom == 14:
                 CLASS = "Pugilist"
                 MAINSTAT = "str"
                 SECONDSTAT = "con"
                 HITDIE = 8
                 SAVE1 = "Strength"
                 SAVE2 = "Constitution"
-            elif ClassRandom == 15:
+            elif PClassRandom == 15:
                 CLASS = "Ranger"
                 MAINSTAT = "dex"
                 SECONDSTAT = "wis"
                 HITDIE = 10
                 SAVE1 = "Strength"
                 SAVE2 = "Dexterity"
-            elif ClassRandom == 16:
+            elif PClassRandom == 16:
                 CLASS = "Rogue"
                 MAINSTAT = "dex"
                 SECONDSTAT = "RAND"
                 HITDIE = 8
                 SAVE1 = "Dexterity"
                 SAVE2 = "Intelligence"
-            elif ClassRandom == 17:
+            elif PClassRandom == 17:
                 CLASS = "Sorcerer"
                 MAINSTAT = "cha"
                 SECONDSTAT = "RAND"
                 HITDIE = 6
                 SAVE1 = "Constitution"
                 SAVE2 = "Charisma"
-            elif ClassRandom == 18:
+            elif PClassRandom == 18:
                 CLASS = "Warlock"
                 MAINSTAT = "cha"
                 SECONDSTAT = "RAND"
                 HITDIE = 8
                 SAVE1 = "Wisdom"
                 SAVE2 = "Charisma"
-            elif ClassRandom == 19:
+            elif PClassRandom == 19:
                 CLASS = "Warlord"
                 MAINSTAT = "str"
                 if random.randint(1, 2) == 1:
@@ -686,7 +687,7 @@ def ClassGen(CLASSTOGGLE, INCLUDEHOMEBREWCLASSES):
                 HITDIE = 8
                 SAVE1 = "Wisdom"
                 SAVE2 = "Charisma"
-            elif ClassRandom == 20:
+            elif PClassRandom == 20:
                 CLASS = "Wizard"
                 MAINSTAT = "int"
                 SECONDSTAT = "RAND"
@@ -742,7 +743,7 @@ def LevelCRGen(ClassRandom):
     if ClassRandom >= 18:
         Leveling = 1
         while Leveling == 1:
-            Leveling = random.randint(1,2)
+            Leveling = random.randint(1,2) # 50% chance to level up
             LEVEL += 1
 
     CHALLENGERATING = "Party CR"
@@ -948,6 +949,7 @@ def ExportNPC(HITDIE, SAVE1, SAVE2):
         # Armor Class
         
         template_json["armorClass"] = 12 + math.floor((random.randint(15,22)/10)*PROFICIENCYBONUS)
+        
         # Race
         
         template_json["race"] = SPECIES

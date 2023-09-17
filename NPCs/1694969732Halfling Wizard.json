@@ -1,0 +1,187 @@
+{
+    "abilityScores": [
+        {
+            "name": "str",
+            "value": 14
+        },
+        {
+            "name": "dex",
+            "value": 10
+        },
+        {
+            "name": "con",
+            "value": 8
+        },
+        {
+            "name": "int",
+            "value": 15
+        },
+        {
+            "name": "wis",
+            "value": 15
+        },
+        {
+            "name": "cha",
+            "value": 13
+        }
+    ],
+    "alignment": "Lawful Neutral",
+    "armorClass": 15,
+    "challengeRating": "Party CR-2",
+    "classes": [
+        {
+            "class": "Wizard",
+            "level": 2
+        }
+    ],
+    "description": "A level 2 (or Party CR-2) Halfling Wizard of Lawful Neutral alignment and Friendly disposition.\n\n Goal: Love: since they announced their chosen profession, their father has been distant sand, at times, cruel. They want to prove their worth to earn their trust.",
+    "imageUri": "https://cdn.alchemyrpg.com/app-assets/humanoid-token.svg",
+    "initiativeBonus": 0,
+    "isNPC": true,
+    "movementModes": [
+        {
+            "distance": 30,
+            "mode": "Walking"
+        }
+    ],
+    "name": "Halfling Wizard",
+    "proficiencies": [
+        {
+            "name": "Intelligence",
+            "type": "save"
+        },
+        {
+            "name": "Wisdom",
+            "type": "save"
+        },
+        {
+            "name": "Common",
+            "type": "language"
+        }
+    ],
+    "proficiencyBonus": 2,
+    "race": "Halfling",
+    "size": "Medium",
+    "skills": [
+        {
+            "abilityName": "dex",
+            "name": "Acrobatics",
+            "proficient": true
+        },
+        {
+            "abilityName": "wis",
+            "name": "Animal Handling",
+            "proficient": false
+        },
+        {
+            "abilityName": "int",
+            "name": "Arcana",
+            "proficient": true
+        },
+        {
+            "abilityName": "str",
+            "name": "Athletics",
+            "proficient": false
+        },
+        {
+            "abilityName": "cha",
+            "name": "Deception",
+            "proficient": false
+        },
+        {
+            "abilityName": "int",
+            "name": "History",
+            "proficient": false
+        },
+        {
+            "abilityName": "wis",
+            "name": "Insight",
+            "proficient": false
+        },
+        {
+            "abilityName": "cha",
+            "name": "Intimidation",
+            "proficient": false
+        },
+        {
+            "abilityName": "int",
+            "name": "Investigation",
+            "proficient": false
+        },
+        {
+            "abilityName": "wis",
+            "name": "Medicine",
+            "proficient": false
+        },
+        {
+            "abilityName": "int",
+            "name": "Nature",
+            "proficient": false
+        },
+        {
+            "abilityName": "wis",
+            "name": "Perception",
+            "proficient": true
+        },
+        {
+            "abilityName": "cha",
+            "name": "Performance",
+            "proficient": false
+        },
+        {
+            "abilityName": "cha",
+            "name": "Persuasion",
+            "proficient": false
+        },
+        {
+            "abilityName": "int",
+            "name": "Religion",
+            "proficient": false
+        },
+        {
+            "abilityName": "dex",
+            "name": "Sleight of Hand",
+            "proficient": true
+        },
+        {
+            "abilityName": "dex",
+            "name": "Stealth",
+            "proficient": false
+        },
+        {
+            "abilityName": "wis",
+            "name": "Survival",
+            "proficient": false
+        }
+    ],
+    "speed": 30,
+    "systemKey": "5e",
+    "textBlocks": [
+        {
+            "textBlocks": [
+                {
+                    "body": "Ability 1 Description",
+                    "title": "Ability 1"
+                }
+            ],
+            "title": "Abilities"
+        }
+    ],
+    "trackers": [
+        {
+            "color": "Yellow",
+            "max": 355000,
+            "name": "XP",
+            "type": "Bar",
+            "value": 0
+        },
+        {
+            "color": "Green",
+            "max": 6,
+            "name": "HP",
+            "type": "Bar",
+            "value": 6
+        }
+    ],
+    "type": "Humanoid"
+}
