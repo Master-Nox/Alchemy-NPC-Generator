@@ -18,6 +18,10 @@
 # Make Species actually respect their rarity. DONE
 # Make a setting to force a certain level or level range. 
 
+# Bugs #
+# Direct editing a class will result in N/A saving throws.
+# Direct editing a class will result in inaccurate HP generation(?).
+# Alchemy update broke HP generation. 
 
 # Imports #
 import csv
@@ -947,8 +951,20 @@ def ExportNPC(HITDIE, SAVE1, SAVE2):
         template_json["proficiencyBonus"] = PROFICIENCYBONUS
         
         # Armor Class
-        
-        template_json["armorClass"] = 12 + math.floor((random.randint(15,22)/10)*PROFICIENCYBONUS)
+        ClassACMOD = 0
+        if CLASS == "Artificer":
+            ClassACMOD = 0
+        elif CLASS == "Barbarian":
+            ClassACMOD = 1
+        elif CLASS == "Bard":
+            ClassACMOD = 0
+        elif CLASS == "Bloodhunter":
+            ClassACMOD = 0
+        elif CLASS == "Cleric":
+            ClassACMOD = 0
+        elif CLASS == "Paladin":
+            ClassACMOD = 1
+        template_json["armorClass"] = 12 + math.floor((random.randint(15,22)/10)*PROFICIENCYBONUS)+ClassACMOD
         
         # Race
         
@@ -956,10 +972,10 @@ def ExportNPC(HITDIE, SAVE1, SAVE2):
         
         # Description
         
-        template_json["description"] = "A level "+str(LEVEL)+" (or "+CHALLENGERATING+") "+SPECIES+" "+CLASS+" of "+ALIGNMENT+" alignment and "+DISPOSITION+" disposition.\n\n Goal: "+GOAL
+        template_json["description"] = f"# Visual\nRace: {SPECIES}\nGender: {GENDER}\nHeight: \nHair Color: \nNotable Features: \n\n# Brief\nThis section should be 2-3 sentences long and briefly describe the character's physical appearance and personality regarding the party.\n\n# Relation\n## Party\nHow the party knows/met the NPC and how they affect them.\n\n## World\nHow the NPC knows/interacts with various organizations and or other NPCs throughout the world.\n\n# Background\nThis section should vary in length substantially, revealing more about an NPC's past as the players continue to learn about them. Should be written in the past tense.\n\n# Important Notes\nWhen this NPC mentions something important to them or to the party, it should be put here in a list format.\n\n![# DM Section]()\n![## Voice]()\n![A description of this character's voice when appropriate should be described here.]()\n\n![## Current Goals]()\n![This should be the NPC's CURRENT Goals, likely in a list format, with older goals crossed out.]()\n\n![## Motivations]()\n![This motivation should inform the NPC's current and longterm goals, what they strive for.]()\n\n![## Secrets]()\n![Anything this NPC attempts to keep from the party or the world in general.]()\n\n![## Other]()\n![Misc that I have not yet catagorized.]()"
         
     # Export the modified dictionary as a JSON file
-    outputfilename = "NPCs\\"+ str(int(time.time()))+SPECIES+" "+CLASS+'.json'
+    outputfilename = "NPCs\\"+ str(int(time.time()))+GENDER+" "+SPECIES+" "+CLASS+'.json'
     with open(outputfilename, 'w') as json_file:
         json.dump(template_json, json_file, indent=4)
         
@@ -993,7 +1009,7 @@ while Choice != "5":
                 elif GenerateChoice == "2":
                     CLASS, MAINSTAT, SECONDSTAT, ClassRandom, HITDIE = ClassGen(CLASSTOGGLE, INCLUDEHOMEBREWCLASSES)
                 elif GenerateChoice == "3":
-                    LEVEL, CHALLENGERATING, PROFICIENCYBONUS = LevelCRGen(ClassRandom)
+                    LEVEL, CHALLENGERATING, PROFICIENCYBONUS = LevelCRGen(20)
                 elif GenerateChoice == "4":
                     GENDER = GenderGen()
                 elif GenerateChoice == "5":
